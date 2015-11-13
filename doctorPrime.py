@@ -1,6 +1,6 @@
-#to check for gcd of two interger. If gcd == 1 -> coprime
 from itertools import *
 from functools import *
+
 def gcd(a, b):
     while b!= 0:
         t = b
@@ -109,4 +109,31 @@ def findPrimeUnder(number):
     while prime(i)<number:
         i+=1
     return prime(i-1)
+
+"""
+there exist integers x,y such that gcd(a,b) can be written 
+as gcd(a,b) = ax + by
+extend euclidean algo compute x, and y
+"""
+def extendEuclideanAlgo(a,b):
+	if(b < a):
+		a,b = b,a
+	if b == 0:
+	 	return a,1,0
+	x2 = 1	
+	x1 = 0
+	y2 = 0
+	y1 = 1
+	while b > 0:
+		q = a / b
+		r = a - q*b
+		x = x2 - q*x1
+		y = y2- q*y1
+		a = b
+		b = r
+		x2 = x1
+		x1 = x
+		y2 = y1
+		y1 = y
+	return a,x2,y2
 

@@ -20,7 +20,7 @@ def is_Lychrel_number(number, iteration):
 	for i in range(iteration):
 		number = number+ reverse_number(number)
 		if isPalin(number):
-s			return False
+			return False
 	return True
 #give a number, save n last digits
 def find_n_last_digits(number,n):
